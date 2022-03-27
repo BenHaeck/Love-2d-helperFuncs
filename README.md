@@ -1,4 +1,6 @@
 # Love-2d-helperFuncs
+
+---
 A bunch of helpful functions for lua and love2d game development.
 
 Feel free to edit it as much as you want.
