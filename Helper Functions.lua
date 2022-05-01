@@ -81,6 +81,12 @@ function hf.normalize (x,y)
 	return x * mult, y * mult;
 end
 
+-- Physics
+function collideRect (posX1, posY1, posX2, posY2, sizeX, sizeY)
+	local distX, distY = math.abs (posX1 - posX2), math.abs (posY1 - posY2);
+	return distX < sizeX && distY < sizeY;
+end
+
 -- Input --
 -- takes in 2 keys, lesser lessens the return value, and greater increases it
 -- returns a value between -1 and 1
