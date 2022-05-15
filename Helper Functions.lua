@@ -82,7 +82,7 @@ function hf.normalize (x,y)
 end
 
 -- Physics
-function collideRect (posX1, posY1, posX2, posY2, sizeX, sizeY)
+function hf.collideRect (posX1, posY1, posX2, posY2, sizeX, sizeY)
 	local distX, distY = math.abs (posX1 - posX2), math.abs (posY1 - posY2);
 	return distX < sizeX and distY < sizeY;
 end
