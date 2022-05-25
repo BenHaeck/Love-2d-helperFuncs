@@ -47,13 +47,15 @@ function hf.centerRect (x,y,w,h)
 end
 
 -- reduces over time
-function hf.reduce (val, am, dt)
-	return val * math.pow(1/(1 + am),dt * hf.reduceConst);
+function hf.reduce (val, am, dt, snap)
+	if snap == nil then snap = 0 end
+	if math.abs(val) <= snap then return 0 end
+	return val * math.pow(1/(1+am),hf.reduceConst * dt);
 end
 
 -- approaches a value over time
-function hf.moveTo (val, target, am, dt)
-	return hf.reduce (val - target, am, dt) + target
+function hf.moveTo (val, target, am, dt, snap)
+	return hf.reduce (val - target, am, dt, snap) + target
 end
 
 -- takes in 2 values that ranges between -1 and 1, and divides them as they both approach 1 and/or -1
