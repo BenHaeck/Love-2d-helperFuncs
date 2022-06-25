@@ -89,6 +89,10 @@ function hf.collideRect (posX1, posY1, posX2, posY2, sizeX, sizeY)
 	return distX < sizeX and distY < sizeY;
 end
 
+function hf.collideCircle (posX1, posY1, posX2, posY2, radius)
+	return radius * radius > hf.distanceSqr (posX1 - posX2, posY1 - posY2);
+end
+
 -- Input --
 -- takes in 2 keys, lesser lessens the return value, and greater increases it
 -- returns a value between -1 and 1
