@@ -1,4 +1,4 @@
-local hf = {reduceConst = 20, softenAmount = 0.2929}
+local hf = {reduceConst = 10, softenAmount = 0.2929}
 
 -- Tables --
 -- returns a shallow copy of a table
@@ -102,7 +102,6 @@ function hf.getLesser(x,y)
 	return y;
 end
 
--- takes a square canvas and centers it in a rectange, so that the entire canvas is visible
 function hf.centerCanvas (sizeX,sizeY, canvSize)
 	local canvasScreenSize = hf.getLesser(sizeX,sizeY);
 	local canvasScreenScale = canvasScreenSize / canvSize;
@@ -144,13 +143,11 @@ function hf.collideCircle (posX1, posY1, posX2, posY2, radius)
 end
 
 -- animation --
--- returns a sprite index for a looping animation
 function hf.animateLoop (t, length)
 	t = t%length;
 	return math.floor (t) + 1;
 end
 
--- returns a sprite index for an animation that feezes at the end
 function hf.animateStop (t, length)
 	t = t + 1;
 	if t > length then
@@ -159,7 +156,6 @@ function hf.animateStop (t, length)
 	return math.floor(t);
 end
 
--- returns the scaleX, scaleY of a sprite that is squished
 function hf.squish (scale, t, am)
 	local squishAm = t * am;
 	return scale * (1 - squishAm), scale * (1 + squishAm);
@@ -218,4 +214,3 @@ function hf.formatLevel (world, level, lb, elmSep)
 end 
 --]]
 return hf;
-
